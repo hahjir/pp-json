@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Real Estate</title>
 </head>
 <body>
+<h1>Real Estate JSON</h1>
+<button id="get">Get Real Estate Data</button>
+
+<div id="output"></div>
+
+
+<script src="//code.jquery.com/jquery.js"></script>
+
+<script>
+    $("#get").click(function () {
+
+        $.getJSON("real_estate.json", function (result) {
+            $.each(result, function (index, item) {
+                $("#output").append(index + "-" + item.data.type + " " + item.data.status);
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
